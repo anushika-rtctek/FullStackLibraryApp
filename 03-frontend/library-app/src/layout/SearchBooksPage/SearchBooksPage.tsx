@@ -12,7 +12,7 @@ export const SearchBooksPage = () => {
     const [books, setBooks] = useState<BookModel[]>([])
     const [isLoading, setIsLoading] = useState(true)
     const [httpError, setHttpError] = useState(null)
-    const [currentPage, setCurrentPage] = useState(0)
+    const [currentPage, setCurrentPage] = useState(1)
     const [booksPerPage] = useState(5)
     const [totalBooks, setTotalBooks] = useState(0)
     const [totalPages, setTotalPages] = useState(0)
@@ -74,8 +74,8 @@ export const SearchBooksPage = () => {
     }
 
     const indexOfLastItem: number = currentPage * booksPerPage
-    const indexOfFirstItem: number = indexOfLastItem - booksPerPage
-    let lastItem = booksPerPage * currentPage <= totalBooks ? booksPerPage * currentPage : totalBooks
+    const indexOfFirstItem: number = indexOfLastItem - booksPerPage +1
+    let lastItem = (booksPerPage * currentPage <= totalBooks) ? indexOfLastItem : totalBooks
 
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
 
@@ -122,7 +122,7 @@ export const SearchBooksPage = () => {
                     <div className="mt-3">
                         <h5>Number of Results: ({totalBooks})</h5>
                     </div>
-                    <p>{indexOfFirstItem} to {indexOfLastItem} of 22 items:</p>
+                    <p>{indexOfFirstItem} to {lastItem} of {totalBooks} items:</p>
                     {books.map(book => (
                         <SearchBooks book={book} key={book.id}/>
                     ))}
