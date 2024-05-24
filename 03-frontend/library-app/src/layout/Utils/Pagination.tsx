@@ -6,20 +6,16 @@ export const Pagination: React.FC<{ currentPage: number, totalPages: number, pag
         pageNumbers.push(props.currentPage)
         if (props.totalPages >= props.currentPage + 1) {
             pageNumbers.push(props.currentPage + 1)
-            console.log(pageNumbers)
         } 
         if (props.totalPages >= props.currentPage + 2) {
             pageNumbers.push(props.currentPage + 2)
-            console.log(pageNumbers)
         }
     } else if (props.currentPage > 1) {
         if (props.currentPage >= 3) {
             pageNumbers.push(props.currentPage - 2)
             pageNumbers.push(props.currentPage - 1)
-            console.log(pageNumbers)
         } else {
             pageNumbers.push(props.currentPage - 1)
-            console.log(pageNumbers)
         }
         pageNumbers.push(props.currentPage)
 
