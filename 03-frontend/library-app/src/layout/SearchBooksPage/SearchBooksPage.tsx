@@ -7,8 +7,6 @@ import { Pagination } from "../Utils/Pagination"
 
 export const SearchBooksPage = () => {
 
-    //axios.defaults.withCredentials = true
-
     const [books, setBooks] = useState<BookModel[]>([])
     const [isLoading, setIsLoading] = useState(true)
     const [httpError, setHttpError] = useState(null)
