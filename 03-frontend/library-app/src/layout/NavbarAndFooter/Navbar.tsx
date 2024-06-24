@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 export const Navbar = () => {
     return (
@@ -21,7 +21,7 @@ export const Navbar = () => {
                     </ul>
                     <ul className='navbar-nav ms-auto'>
                         <li className='nav-item m-1'>
-                            <a type='button' className='btn btn-outline-light' href='#'>Sign In</a>
+                            <Link type='button' className='btn btn-outline-light' to='/signup'>Sign Up</Link>
                         </li>
                     </ul>
                 </div>
